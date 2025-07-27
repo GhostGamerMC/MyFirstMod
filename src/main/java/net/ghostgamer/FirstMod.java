@@ -1,6 +1,8 @@
 package net.ghostgamer.firstmod;
 
 import com.mojang.logging.LogUtils;
+import net.ghostgamer.firstmod.item.Moditems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -29,7 +31,7 @@ public class FirstMod {
         // Register the Deferred Register to the mod event bus so blocks get registered
         MinecraftForge.EVENT_BUS.register(this);
 
-
+        Moditems.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -43,7 +45,10 @@ public class FirstMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(Moditems.BLOODGEM);
+            event.accept(Moditems.RAW_BLOODGEM);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
