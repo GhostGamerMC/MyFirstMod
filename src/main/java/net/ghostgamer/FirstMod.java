@@ -1,6 +1,7 @@
 package net.ghostgamer.firstmod;
 
 import com.mojang.logging.LogUtils;
+import net.ghostgamer.firstmod.block.Modblocks;
 import net.ghostgamer.firstmod.item.Moditems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -32,6 +33,7 @@ public class FirstMod {
         MinecraftForge.EVENT_BUS.register(this);
 
         Moditems.register(modEventBus);
+        Modblocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -48,6 +50,10 @@ public class FirstMod {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(Moditems.BLOODGEM);
             event.accept(Moditems.RAW_BLOODGEM);
+        }
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(Modblocks.BLOODGEM_BLOCK);
+            event.accept(Modblocks.RAW_BLOODGEM_BLOCK);
         }
     }
 

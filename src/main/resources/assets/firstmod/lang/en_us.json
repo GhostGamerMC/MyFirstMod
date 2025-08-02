@@ -1,4 +1,7 @@
 {
-  "item.firstmod.bloodgem": "Blood Gem",
-  "item.firstmod.raw_bloodgem": "Raw Blood Gem"
+  "item.firstmod.bloodgem": "Bloodgem",
+  "item.firstmod.raw_bloodgem": "Raw Bloodgem",
+
+  "block.firstmod.bloodgem_block": "Block of Bloodgem",
+  "block.firstmod.raw_bloodgem_block": "Block of Raw Bloodgem"
 }
